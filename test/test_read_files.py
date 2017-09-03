@@ -3,10 +3,20 @@
 from coolprogram import *
 import os
 
-def find_file(locations):
-    for location in locations:
-        if os.path.exists(location):
-            return(location)
+def locations():
+    """Locations where test files could be found."""
+    locations = ['./test_files',
+                 './test/test_files',
+                 '../test/test_files',
+                ]
+    return(locations)
+
+def find_file(filename):
+    """ Finds a file to use in tests """
+    for location in locations():
+        filepath = os.path.join(location, filename)
+        if os.path.exists(filepath):
+            return(filepath)
     raise IOError('Could not find test file.')
         
 def test_read_favorite_color():
@@ -14,10 +24,8 @@ def test_read_favorite_color():
     Test that favorite color is read properly
 
     """
-    locations = ['./test_files/favorite_color.csv',
-                 './test/test_files/favorite_color.csv',
-                ]
-    test_file = find_file(locations)
+    filename = 'favorite_color.csv'
+    test_file = find_file(filename)
 
     data = read_favorite_color(test_file)
     assert( data['first_name'][1] == 'King' )

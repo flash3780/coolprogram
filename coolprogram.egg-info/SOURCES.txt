@@ -1,0 +1,7 @@
+setup.cfg
+setup.py
+coolprogram.egg-info/PKG-INFO
+coolprogram.egg-info/SOURCES.txt
+coolprogram.egg-info/dependency_links.txt
+coolprogram.egg-info/top_level.txt
+test/test_read_files.py
