@@ -20,5 +20,8 @@ def test_read_favorite_color():
     test_file = find_file(locations)
 
     data = read_favorite_color(test_file)
-    assert( data['correct_answers'][0] == 0 )
-    assert( data['cross_bridge'][0] == False )
+    assert( data['first_name'][1] == 'King' )
+    assert( data['last_name'][1] == 'Arthur' )
+    assert( data['correct_answers'][1] == 3 )
+    assert( data['cross_bridge'][1] == True )
+    assert( data['favorite_color'][1] == 'green' )
